@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Telegram Mini App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f0f4f8;
+      padding: 30px 15px;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 400px;
+      margin: auto;
+    }
+    button {
+      background: #2481cc;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>My Telegram Mini App</h2>
+    <p>Your app is working!</p>
+    <p id="data"></p>
+    <button onclick="showData()">Show Link Data</button>
+  </div>
+
+  <script>
+    const app = window.Telegram.WebApp;
+    app.ready();
+
+    function showData() {
+      const params = new URLSearchParams(window.location.search);
+      const data = params.get("startapp");
+      document.getElementById("data").textContent =
+        data ? "Link data: " + data : "No link data received.";
+    }
+  </script>
+</body>
+  </html>
